@@ -78,7 +78,7 @@ public class Leetcode26 {
 
             for(int i=0;i<k-1;i++) {
 
-                cur= newHead.next;
+                cur= newHead;
                 ListNode op = cur.next;
                 cur.next = op.next;
                 op.next = newHead.next;
@@ -104,7 +104,7 @@ public class Leetcode26 {
 
     public static void main(String[] args) {
 
-        Leetcode26 l2=new  Leetcode26();
+        Leetcode26_1 l2=new  Leetcode26_1();
         l2.buildList();
 
         l2.printList();
