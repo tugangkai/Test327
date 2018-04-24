@@ -35,23 +35,22 @@ public class Leetcode39 {
 
             for(int j=i;j<candidates.length;j++){
                 boolean flag;
-                objects.add(j);
+                objects.add(candidates[j]);
                 flag=backtrack(list,objects,candidates,target-candidates[j],j);
                 objects.remove(objects.size()-1);
+
+
                 if(!flag)
                     break;
 
-
             }
             return true;
-
-
     }
-
     public static void main(String[] args) {
         Leetcode39 l39=new Leetcode39();
         int []sum={2,4,6};
-        List<List<Integer>>res = l39.combinationSum(sum,8);
+        int candidates[]={10,1,2,7,6,1,5};
+        List<List<Integer>>res = l39.combinationSum(candidates,8);
         for(List<Integer> r1:res){
             System.out.println(r1);
         }
