@@ -49,7 +49,40 @@ public class Leetcode31 {
 //
 //
 //    }
+public void nextPermutation(int[] nums) {
+    int len = nums.length;
+    int i = 0;
+    for(i = len - 1; i > 0; i--){
+        if(nums[i-1] >= nums[i]){
+            continue;
+        }else{
+            for(int j = len - 1; j >= i ; j--){
+                if(nums[j] <= nums[i-1]){
+                    continue;
+                }else{
+                    int a = nums[i-1];
+                    nums[i-1] = nums[j];
+                    nums[j] = a;
+                }
+                break;
+            }
+            break;
+        }
+    }
+    swap(nums,i,len-1);
+}
 
+    private void swap(int[] nums, int left, int right) {
+        // TODO Auto-generated method stub
+        int temp = 0;
+        while(left < right){
+            temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+    }
 
 
 }
