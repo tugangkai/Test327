@@ -119,7 +119,7 @@ public String addBinary(String a, String b) {
         System.out.println(res);
        // System.out.println(res);
     }
-    public String addBinary1(String a, String b) {
+    public String addBinary2(String a, String b) {
         if (a == null || b == null) {
             return a == null ? b : a;
         }
@@ -144,6 +144,43 @@ public String addBinary(String a, String b) {
             return "1" + new String(result);
         }
         return new String(result);
+    }
+
+
+    public String addBinary1(String a, String b) {
+        if(a == null || a.length() == 0 || a.equals("0")){
+            return b;
+        }
+        if(b == null || b.length() == 0 || b.equals("0")){
+            return a;
+        }
+        if(a.length() < b.length()){
+            String temp = "";
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        char[] aChar = a.toCharArray();
+        char[] bChar = b.toCharArray();
+        int m = a.length() - 1;
+        int n = b.length() - 1;
+        int plus = 0;
+        while(m >= 0){
+            if(n >= 0) aChar[m] = (char)(aChar[m] + bChar[n] + plus - '0');
+            else aChar[m] += plus ;
+
+            if(aChar[m] > '1') {
+                aChar[m] -= 2;
+                plus = 1;
+            }else {
+                plus = 0;
+            }
+            m--;
+            n--;
+        }
+
+        return plus == 1?"1" + String.valueOf(aChar):String.valueOf(aChar);
+
     }
 
 }
