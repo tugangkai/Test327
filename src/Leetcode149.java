@@ -10,10 +10,11 @@ import java.util.Map;
 public class Leetcode149 {
     public int maxPoints(Point[] points) {
         if (points.length < 3) return points.length;
-        int samePoints=0;
-        int sameSlope=0;
+
         int max=Integer.MIN_VALUE;
         for(int i=0;i<points.length;i++){
+            int samePoints=1;
+            int sameSlope=0;
             for(int j=i+1;j<points.length;j++){//第二个点
                 int  x_dis1=points[j].x-points[i].x;
                 int y_dis1=points[j].y-points[i].y;
@@ -22,8 +23,8 @@ public class Leetcode149 {
                 }else{
                     sameSlope++;
                     for(int k=j+1;k<points.length;k++){
-                        int x_dis2=points[k].x-points[j].x;
-                        int y_dis2=points[k].y-points[j].y;
+                        int x_dis2=points[k].x-points[i].x;
+                        int y_dis2=points[k].y-points[i].y;
                         if((long)y_dis2*(long)x_dis1==(long)y_dis1*(long)x_dis2){
                             sameSlope++;
                         }
