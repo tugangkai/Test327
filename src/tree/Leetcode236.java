@@ -77,4 +77,30 @@ public class Leetcode236 {
         paths.remove(paths.size()-1);
         return false;
     }
+/**
+ *
+ *
+ *
+ * 后序遍历到节点p，q后，向上回溯，对于没有包括p q的子树，他们的返回值是null,最后
+ * 对左右子树进行判断，如果回传值是空，则祖先节点在左子树，否则在有字数，
+ * 如果都没有left和rightt都不为空，则祖先节点就是自己。
+ */
+//
+//    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//        if(root == null){
+//            return null;
+//        }
+//        if(root == p || root == q){
+//            return root;
+//        }
+//        TreeNode left = lowestCommonAncestor(root.left,p,q);
+//        TreeNode right = lowestCommonAncestor(root.right,p,q);
+//        if(left == null){
+//            return right;
+//        }
+//        if(right == null){
+//            return left;
+//        }
+//        return root;
+//    }
 }
